@@ -1,0 +1,99 @@
+#kof {
+    width: 1280px;
+    height: 720px;
+
+    /*背景图片*/
+    background-image: url('/static/images/background/0.gif');
+    /* 背景图片不重复，切纵向没有拉那么长 */
+    background-size: 200% 100%;
+    /* 定位背景图片到中间位置，第二维不写默认居中 */
+    background-position: top;
+
+    position: absolute;
+}
+
+/* 计分区样式 */
+#kof>.kof-head {
+    width: 100%;
+    height: 80px;
+    /* absolute找最近的非static定位祖先元素的偏移来确定元素的位置，所以#kof也需要定义为absolute */
+    position: absolute;
+    top: 0;
+    display: flex;
+    /* 竖直方向居中 */
+    align-items: center;
+}
+
+/* 第0个玩家的血槽 */
+#kof>.kof-head>.kof-head-hp-0 {
+    height: 40px;
+    width: calc(50% - 60px);
+    margin-left: 20px;
+    border: white 5px solid;
+    border-right: none;
+    /* 边框盒子模型，div大小不会随着border、padding变化 */
+    box-sizing: border-box;
+}
+
+/* 计时器 */
+#kof>.kof-head>.kof-head-timer {
+    height: 60px;
+    width: 80px;
+    background-color: orange;
+    border: white 5px solid;
+    /* 边框盒子模型，div大小不会随着border、padding变化 */
+    box-sizing: border-box;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+    /* 文字水平居中 */
+    text-align: center;
+    /* 行高和div的高度一样时，里面的文字能够竖直居中 */
+    /* 60为div高度 - 上下边框为 5 即 60 - 5 - 5 = 50 */
+    line-height: 50px;
+    /* 使得倒计时的文字不能被用户选中 */
+    user-select: none;
+}
+
+
+/* 第1个玩家的血槽 */
+#kof>.kof-head>.kof-head-hp-1 {
+    height: 40px;
+    width: calc(50% - 60px);
+    border: white 5px solid;
+    border-left: none;
+    /* 边框盒子模型，div大小不会随着border、padding变化 */
+    box-sizing: border-box;
+}
+
+/* 第0个玩家的血槽拖影效果 */
+#kof>.kof-head>.kof-head-hp-0>div {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    /* 两边往中间扣血 */
+    float: right;
+}
+
+/* 第1个玩家的血槽拖影效果 */
+#kof>.kof-head>.kof-head-hp-1>div {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+}
+
+/* 第0个玩家的血槽 */
+#kof>.kof-head>.kof-head-hp-0>div>div {
+    height: 100%;
+    width: 100%;
+    background-color: lightgreen;
+    /* 两边往中间扣血 */
+    float: right;
+}
+
+/* 第1个玩家的血槽 */
+#kof>.kof-head>.kof-head-hp-1>div>div {
+    height: 100%;
+    width: 100%;
+    background-color: lightgreen;
+}
